@@ -45,7 +45,7 @@ const { width } = useWindowSize();
   margin: 0 auto
   max-width: 1920px
   height: 100%
-  padding: 0 167px
+  padding: 0 165px
   width: 100%
   overflow-x: hidden
 

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 0,
+    "description": "Выгодные скидки в ресторанах на вынос",
+    "pic": "card-1.png",
+    "picMobile": "card-1_mobile.png",
+    "backgroundColor": "#AB8EF7"
+  },
+  {
+    "id": 1,
+    "description": "Выгодные скидки в ресторанах на вынос",
+    "pic": "card-2.png",
+    "picMobile": "card-2_mobile.png",
+    "backgroundColor": "#8578A7"
+  },
+  {
+    "id": 2,
+    "description": "Выгодные скидки в ресторанах на вынос",
+    "pic": "card-3.png",
+    "picMobile": "card-3_mobile.png",
+    "backgroundColor": "#A678A7"
+  },
+  {
+    "id": 3,
+    "description": "Выгодные скидки в ресторанах на вынос",
+    "pic": "card-3.png",
+    "picMobile": "card-3_mobile.png",
+    "backgroundColor": "#AB8EF7"
+  }
+]
