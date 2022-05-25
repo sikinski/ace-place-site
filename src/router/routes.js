@@ -1,5 +1,6 @@
 import HomePage from '@/pages/HomePage.vue';
-import AceNews from '@/pages/AceNews.vue'
+import AceNews from '@/pages/AceNews.vue';
+import StorePage from '@/pages/StorePage.vue';
 export default [
   {
     path: '/',
@@ -31,22 +32,22 @@ export default [
           ],
         },
       },
-    ]
+    ],
   },
-  
-  // {
-  //   path: '/',
-  //   name: 'AceHeader',
-  //   component: AceHeader,
-  //   meta: {
-  //     breadCrumbs: [
-  //       {
-  //         to: '/', // hyperlink
-  //         text: 'Home', // crumb text
-  //       },
-  //     ],
-  //   },
-  // },
+
+  {
+    path: '/',
+    name: 'StorePage',
+    component: StorePage,
+    meta: {
+      breadCrumbs: [
+        {
+          to: '/store', // hyperlink
+          text: 'Магазин', // crumb text
+        },
+      ],
+    },
+  },
   // {
   //   path: '/',
   //   name: 'AceHeader',

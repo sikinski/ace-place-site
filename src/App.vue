@@ -1,6 +1,6 @@
 <template>
   <div class="app-wrapper">
-    <LocationBar v-if="width < 720" :city="city" />
+    <LocationBar v-if="width <= 720" :city="city" />
     <AceHeader
       :name="name"
       :date="date"
@@ -91,15 +91,9 @@ button
 .right-line-bg_mobile
   display: none
 
-.start-heading // here
-  margin: 87px 0
-  text-align: center
-  font-weight: 800
-  font-size: 96px
-  line-height: 123px
-  text-transform: uppercase
-  .colorful-text
-    color: $purpleCol
+
+.colorful-text
+  color: $purpleCol
 
 @media (max-width: $breakpoint-large-pc)
   .inner-block
@@ -125,9 +119,4 @@ button
   .inner-block
     padding: 0 15px
     max-width: $breakpoint-mobile-large
-
-// @media (max-width: $breakpoint-mobile-small)
-//   .inner-block
-//     padding: 0 70px
-//     max-width: $breakpoint-mobile-small
 </style>

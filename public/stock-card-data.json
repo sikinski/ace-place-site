@@ -1,0 +1,35 @@
+[
+  {
+    "id": 0,
+    "logoCompany": "rieker_logo.svg",
+    "background": "priority-bg-1.png",
+    "typeCompany": "Магазин обуви",
+    "nameCompany": "«Reiker»",
+    "commentsNum": 22,
+    "likesNum": 112,
+    "percentDiscount": 15,
+    "discountText": "скидка на весеннюю коллекцию обуви"
+  },
+  {
+    "id": 1,
+    "logoCompany": "easy_eng.svg",
+    "background": "priority-bg-2.png",
+    "typeCompany": "Образовательный центр",
+    "nameCompany": "«Easy English»",
+    "commentsNum": 44,
+    "likesNum": 1143,
+    "percentDiscount": 21,
+    "discountText": "скидка на летнее обучение"
+  },
+  {
+    "id": 2,
+    "logoCompany": "atlas.svg",
+    "background": "priority-bg-1.png",
+    "typeCompany": "Супермаркет",
+    "nameCompany": "«Atlas»",
+    "commentsNum": 22,
+    "likesNum": 112,
+    "percentDiscount": 30,
+    "discountText": "скидка на продукты питания"
+  }
+]

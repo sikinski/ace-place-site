@@ -81,6 +81,7 @@ export default {
       margin-right: 5px
     .logo-mobile
       display: none
+
     .header-search
       display: flex
       justify-content: center
@@ -114,6 +115,7 @@ export default {
         &:hover
           text-decoration-line: underline
           color: #FFFFFF
+
     .auth-btns
       display: flex
       align-items: center
@@ -125,6 +127,11 @@ export default {
         color: #FFFFFF
         border: 1px solid #FFFFFF
         border-radius: 43px
+        transition: 0.3s
+        &:hover
+          background-color: #FFFFFF
+          color: $purpleCol
+          box-shadow: 0px 5px 17px #655BD2
       .register
         display: none
 @media (max-width: $breakpoint-large-pc)
