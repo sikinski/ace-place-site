@@ -3,11 +3,16 @@
     <div class="inner-block">
       <router-link to="/">
         <img src="@/assets/images/icons/logo.svg" alt="logo" class="logo" />
+        <img
+          src="@/assets/images/icons/logo_mobile.svg"
+          alt="logo"
+          class="logo logo-mobile"
+        />
       </router-link>
       <form class="header-search">
         <input type="text" class="input" placeholder="Поиск..." />
       </form>
-      <LocationBar :city="city" v-if="!showBar" />
+      <LocationBar v-if="screenWidth > 720" :city="city" />
       <nav class="header-nav">
         <router-link :to="{ name: 'News' }" class="nav-item"
           >Новости</router-link
@@ -20,17 +25,18 @@
           >F.A.Q.</router-link
         >
       </nav>
-
-      <button class="auth-btn">Вход</button>
+      <div class="auth-btns">
+        <button class="auth-btn sign-in">Вход</button>
+        <button class="auth-btn register">Регистрация</button>
+      </div>
     </div>
   </header>
 </template>
 
 <script>
 import LocationBar from './LocationBar.vue';
-import { useScreenStore } from '../stores/screen';
-
 export default {
+  components: { LocationBar },
   props: {
     name: {
       type: String,
@@ -48,12 +54,10 @@ export default {
       type: String,
       default: '',
     },
-    showBar: {
-      type: Boolean,
+    screenWidth: {
+      type: Number,
+      required: true,
     },
-  },
-  components: {
-    LocationBar,
   },
 };
 </script>
@@ -74,7 +78,13 @@ export default {
     .logo
       max-height: 42px
       margin-top: -6px
+      margin-right: 5px
+    .logo-mobile
+      display: none
     .header-search
+      display: flex
+      justify-content: center
+      align-items: center
       background: #FFFFFF
       border-radius: 36.5px
       height: 40px
@@ -104,14 +114,19 @@ export default {
         &:hover
           text-decoration-line: underline
           color: #FFFFFF
-    .auth-btn
-      padding: 9px 47px
-      font-weight: 400
-      font-size: 16px
-      line-height: 20px
-      color: #FFFFFF
-      border: 1px solid #FFFFFF
-      border-radius: 43px
+    .auth-btns
+      display: flex
+      align-items: center
+      .auth-btn
+        padding: 9px 47px
+        font-weight: 400
+        font-size: 16px
+        line-height: 20px
+        color: #FFFFFF
+        border: 1px solid #FFFFFF
+        border-radius: 43px
+      .register
+        display: none
 @media (max-width: $breakpoint-large-pc)
   .header
     height: 68px
@@ -124,21 +139,16 @@ export default {
           background-size: 14px
           background-position-x: 14px
           padding-left: 38px
-      .location-bar
-        font-size: 11px
-        .text
-          padding: 0 10px
-        .accept-location
-          margin: 0 5px
-          padding: 4px 21px
       .header-nav
         font-size: 14px
         line-height: 18px
         .nav-item
           margin: 0 12px
-      .auth-btn
-        padding: 4px 30px
-        font-size: 14px
+      .auth-btns
+        .auth-btn
+          padding: 4px 30px
+          font-size: 14px
+          line-height: 18px
 
 @media (max-width: $breakpoint-middle-pc)
   .header
@@ -154,21 +164,16 @@ export default {
           padding-left: 32px
           &::placeholder
             font-size: 12px
-      .location-bar
-        font-size: 9px
-        .text
-          padding: 0 10px
-        .accept-location
-          // margin: 0 5px
-          padding: 2px 19px
       .header-nav
         font-size: 10px
         line-height: 16px
         .nav-item
           margin: 0 8px
-      .auth-btn
-        padding: 2px 20px
-        font-size: 12px
+      .auth-btns
+        .auth-btn
+          padding: 2px 20px
+          font-size: 12px
+          line-height: 14px
 @media (max-width: $breakpoint-small-pc)
   .header
     height: 44px
@@ -178,24 +183,72 @@ export default {
       .header-search
         height: 20px
         .input
-          background-size: 10px
+          font-size: 8px
+          background-size: 8px
           background-position-x: 8px
-          padding-left: 24px
+          padding-left: 22px
           &::placeholder
-            font-size: 10px
-      .location-bar
-        font-size: 9px
-        .text
-          padding: 0 10px
-        .accept-location
-          // margin: 0 5px
-          padding: 2px 19px
+            font-size: 8px
       .header-nav
-        font-size: 10px
-        line-height: 16px
+        font-size: 8px
+        line-height: 12px
         .nav-item
-          margin: 0 8px
-      .auth-btn
-        padding: 2px 20px
-        font-size: 12px
+          margin: 0 5px
+      .auth-btns
+        .auth-btn
+          padding: 3px 15px
+          font-size: 10px
+          line-height: 12px
+@media (max-width: $breakpoint-tablet)
+  .header
+    background-color: rgba(0, 0, 0, 0)
+    padding: 33px 0
+    height: 117px
+    .inner-block
+      .logo
+        display: none
+      .logo-mobile
+        max-height: 35px
+        display: block
+      .header-search
+        display: none
+      .header-nav
+        display: none
+      .auth-btns
+        display: flex
+        height: 100%
+        width: 50%
+        justify-content: space-between
+        .auth-btn
+          color: #000
+          border: 1px solid $purpleCol
+          height: 90%
+          font-size: 12px
+          line-height: 15px
+          padding: 0
+        .sign-in
+          width: 38%
+        .register
+          display: block
+          width: 55%
+@media (max-width: $breakpoint-mobile-large)
+  .header
+    .inner-block // here alitems
+      .auth-btns
+        width: 56%
+        .auth-btn
+          height: 33px
+
+@media (min-width: $breakpoint-mobile-small) and (max-width: $breakpoint-mobile-large - 10px)
+  .header
+    height: 100px
+    .inner-block
+      .logo-mobile
+        max-height: 30px
+      .auth-btns
+        max-height: 30px
+        width: 50%
+        .auth-btn
+          font-size: 10px
+          height: 100%
 </style>

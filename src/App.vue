@@ -1,11 +1,11 @@
 <template>
   <div class="app-wrapper">
-    <LocationBar v-if="screen.showLocationBar" :city="city" />
+    <LocationBar v-if="width < 720" :city="city" />
     <AceHeader
       :name="name"
       :date="date"
       :gender="gender"
-      :showBar="screen.showLocationBar"
+      :screen-width="width"
     />
     <main class="main">
       <div class="inner-block">
@@ -23,18 +23,11 @@ import AceFooter from './components/AceFooter.vue';
 
 import { storeToRefs } from 'pinia';
 import { useUserStore } from './stores/user';
-import { useScreenStore } from './stores/screen';
+import { useWindowSize } from '@vueuse/core';
 
 const user = useUserStore();
-const screen = useScreenStore();
 const { name, date, city, gender } = storeToRefs(user);
-// let { showLocationBar } = storeToRefs(screen);
-
-window.addEventListener('resize', () => {
-  if (window.innerWidth < 1024) {
-    screen.showBar();
-  }
-});
+const { width } = useWindowSize();
 </script>
 
 <style lang="sass">
@@ -123,15 +116,15 @@ button
     padding: 0 40px
     max-width: $breakpoint-small-pc
 
-// @media (max-width: $breakpoint-tablet)
-//   .inner-block
-//     padding: 0 30px
-//     max-width: $breakpoint-tablet
+@media (max-width: $breakpoint-tablet)
+  .inner-block
+    padding: 0 27px
+    max-width: $breakpoint-tablet
 
-// @media (max-width: $breakpoint-mobile-large)
-//   .inner-block
-//     padding: 0 70px
-//     max-width: $breakpoint-mobile-large
+@media (max-width: $breakpoint-mobile-large)
+  .inner-block
+    padding: 0 15px
+    max-width: $breakpoint-mobile-large
 
 // @media (max-width: $breakpoint-mobile-small)
 //   .inner-block
